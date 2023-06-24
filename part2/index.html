@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet">
     <title>Document</title>
-    
+
 </head>
 <style>
     .box {
-        border: 1px solid rgb(123, 29, 216);
+        border: 1px solid white;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -19,30 +22,142 @@
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
-        top: 50%;
+        top: 60%;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        border-radius: 15px;
+        padding: 20px 25px;
     }
-    input{
+
+    button {
+        padding: 1.3em 3em;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
         position: absolute;
         transform: translate(-50%, -50%);
+        top: 35%;
         left: 50%;
-        top: 30%;
-        width: 200px;
-        border: 2px solid black;
-        border-radius: 3px;
-        padding: 4px;
     }
-    button{
+
+    button:hover {
+        background-color: #23c483;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+    }
+
+
+    .minutes,
+    .seconds,
+    .dots {
+        font-size: 50px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+
+    #countdown {
         position: absolute;
-        transform: translate(-50%, -50%);
-        left: 50%;
-        top: 34%;
-        padding: 4px;
+        left: 25%;
+        top: 60%;
+        font-size: 20px;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        letter-spacing: 1px;
+
+    }
+
+    .input {
+        color: #fff;
+        font-size: 0.9rem;
+        background-color: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 0.5em;
+        padding-block: 0.7em;
+        border: none;
+        border-bottom: var(--border-height) solid var(--border-before-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-border {
+        position: absolute;
+        background: var(--border-after-color);
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    }
+
+    .input:focus {
+        outline: none;
+    }
+
+    .input:focus+.input-border {
+        width: 100%;
+    }
+
+    .form-control {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 20%;
+        --width-of-input: 300px;
+        transform: translate(25%, -50%);
+    }
+
+    .input-alt {
+        font-size: 1.2rem;
+        padding-inline: 1em;
+        padding-block: 0.8em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
+    }
+
+    .input-border-alt {
+        height: 3px;
+        background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+        transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+    }
+
+    .input-alt:focus+.input-border-alt {
+        width: 100%;
+    }
+
+    .minutes_head {
+        position: absolute;
+        top: 63%;
+        left: 20%;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .second_head {
+        position: absolute;
+        top: 63%;
+        left: 57%;
+        font-size: 14px;
+        margin-top: 10px;
     }
 </style>
 
-<body>
-    <input type="text" id="time" placeholder="Enter your countdown timer here!">
+<body style="background-image: url('2.jpg');">
+    <div class="form-control">
+        <input class="input input-alt" placeholder="Type something intelligent" id="time" required="" type="text">
+        <span class="input-border input-border-alt"></span>
+    </div>
     <button id="submit">Submit</button>
+
+
     <div class="box">
         <div class="minutes">
             <span id="firstminute">00</span>
@@ -52,6 +167,12 @@
         </div>
         <div class="seconds">
             <span id="firstsecond">00</span>
+        </div>
+        <div class="minutes_head">
+            MINUTES
+        </div>
+        <div class="second_head">
+            SECONDS
         </div>
     </div>
     <div id="countdown"></div>
